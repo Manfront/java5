@@ -1,0 +1,72 @@
+package program7;
+import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class program7 {
+	
+	private JFrame frame;
+	JLabel jlab;
+	/**
+	* Launch the application.
+	*/
+	public static void main(String[] args) {
+	EventQueue.invokeLater(new Runnable() {
+	public void run() {
+	try {
+	program7 window = new program7();
+	window.frame.setVisible(true);
+	} catch (Exception e) {
+	e.printStackTrace();
+	}
+	}
+	});
+	}
+	/**
+	* Create the application.
+	*/
+	public program7() {
+	initialize();
+	}
+	/**
+	* Initialize the contents of the frame.
+	*/
+	private void initialize() {
+	JFrame jfrm = new JFrame("An Event Example");
+	// Specify FlowLayout for the layout manager.
+	jfrm.setLayout(new GridLayout());
+	// Give the frame an initial size.
+	jfrm.setSize(220, 90);
+	// Terminate the program when the user closes the application.
+	jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	// Make two buttons.
+	JButton jbtnAlpha = new JButton("Alpha");
+	JButton jbtnBeta = new JButton("Beta");
+	// Add action listener for Alpha and Beta
+	jbtnAlpha.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent ae) {
+	jlab.setText("Alpha was pressed.");
+	}
+	});
+	jbtnBeta.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent ae) {
+	jlab.setText("Beta was pressed.");
+	}
+	});
+	// Add the buttons to the content pane.
+	jfrm.add(jbtnAlpha);
+	jfrm.add(jbtnBeta);
+	// Create a text-based label.
+	jlab = new JLabel("Press a button.");
+	// Add the label to the content pane.
+	jfrm.add(jlab);
+	// Display the frame.
+	jfrm.setVisible(true);
+	}
+	
+
+}
